@@ -16,7 +16,6 @@ class Usuario(Base):
     nombre = Column(String(250))
     apellido = Column(String(250))
     fecha_subscripcion = Column(DateTime)
-
     planetas_favoritos = Column(Integer, ForeignKey('planeta_favorito'))
     personajes_favoritos = Column(Integer, ForeignKey('personaje_favorito'))
 
@@ -25,6 +24,7 @@ class Planeta(Base):
     id = Column(Integer, primary_key=True)
     nombre = Column(String(250), nullable=False)
     poblacion = Column(Integer)
+    terreno = Column(Integer)
 
 
 class Personaje(Base):
@@ -32,6 +32,8 @@ class Personaje(Base):
     id = Column(Integer, primary_key=True)
     nombre = Column(String(250), nullable=False)
     genero = Column(String(50))
+    descripcion = Column(String(250))
+    edad = Column(Integer)
 
 
 class PlanetaFavorito(Base):
